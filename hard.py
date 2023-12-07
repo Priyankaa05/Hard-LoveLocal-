@@ -1,18 +1,16 @@
-def countDigitOne(n):
+#Hard-3:
+
+#Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+
+
+def count_digit_one(n):
     count = 0
-    factor = 1
 
-    while factor <= n:
-        quotient = n // (factor * 10)
-        remainder = n % (factor * 10)
-        count += quotient * factor + min(max(remainder - factor + 1, 0), factor)
-
-        factor *= 10
+    for i in range(1, n + 1):
+        count += str(i).count('1')
 
     return count
 
-user_input = int(input("Enter an integer (n): "))
 
-
-result = countDigitOne(user_input)
-print("Total number of digit 1 appearing in all numbers up to", user_input, "is:", result)
+n=int(input("enter a number"))
+print(count_digit_one(n))
